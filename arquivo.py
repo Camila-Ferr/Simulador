@@ -145,6 +145,7 @@ class arquivo:
                                         if for_variavel in comando:
                                             comando = comando.replace(for_variavel,str(i))
                                         self.comandos.append(comando)
+
                             inclui = False
 
                         elif inclui :
@@ -165,8 +166,6 @@ class arquivo:
             self.variaveis = {}  # dicionário que contém as variáveis
             self.funcoes = []  # vetor das funções
             self.medicao=self.dicionario.medicao
-
-
 
 # Criação de funções, em progresso
 # Ainda não funciona para todos os casos        

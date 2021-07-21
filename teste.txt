@@ -4,7 +4,7 @@ def circuit_g():
   c = ClassicalRegister(6, 'bit') #q clássico
   cir = QuantumCircuit(q, c) #circuito
 
-  for i in range(5):
+  for i in range(1,5):
       cir.h(q[i])
 
   #Oráculo

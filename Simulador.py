@@ -3,7 +3,7 @@ simulação de circuitos quânticos
 
 autores: Gabriela Pinheiro Costa e Luis Kowada
 
-ultima alteração: 03/07/2020 (CF)
+ultima alteração: 21/07/2020 (CF)
 
 pendências:   
 
