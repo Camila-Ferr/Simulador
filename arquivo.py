@@ -1,5 +1,6 @@
 # manipulação de arquivos
 from dicionario import *
+from traducao import *
 
 
 class arquivo:
@@ -70,7 +71,12 @@ class arquivo:
                         # int nome = valor
 
                         # Só são aceitas variáveis inteiras
-                        if linha[:3] == "int":
+                        if linha[:2]== "to":
+                            self.traduz = True
+                            linguagem= linha.split('to ')
+                            linguagem = linguagem[1]
+
+                        elif linha[:3] == "int":
                             nome, valor = linha.split('=')
                             nome, valor = nome.strip(), valor.strip()
                             nome = nome.split()
@@ -157,6 +163,7 @@ class arquivo:
                         else :
                             self.comandos.append(linha)
 
+
         else: #caso esteja em outra linguagem
             self.dicionario=dicionario(self.nome_arq)
             self.n = int(self.dicionario.n)  # indica a quantidade de qbits da simulação
@@ -166,6 +173,9 @@ class arquivo:
             self.variaveis = {}  # dicionário que contém as variáveis
             self.funcoes = []  # vetor das funções
             self.medicao=self.dicionario.medicao
+
+        if (self.traduz):
+            simu = traducao(self,linguagem)
 
 # Criação de funções, em progresso
 # Ainda não funciona para todos os casos        

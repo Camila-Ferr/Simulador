@@ -90,8 +90,10 @@ class dicionario:
                         variavel= linha.split(" ")
                         variavel=variavel[0]
                         valor=re.findall(r'\d+', linha)
+
                         if ('int' in linha):
                             self.variaveis[variavel] = int(valor[0])
+
                         elif ('float' in linha):
                             self.variaveis[variavel]=float(valor[0])
 

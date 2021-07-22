@@ -17,8 +17,9 @@ status atual: cx,ccx,swap são permutações.
 '''
 
 from simulacao import *
+from traducao import traducao
 
-nome_arquivo = "teste.txt"
+nome_arquivo = "Simulador"
 #nome_arquivo = input("Digite o nome do arquivo: ")
 
 simu = simulacao(0,0,nome_arquivo)
