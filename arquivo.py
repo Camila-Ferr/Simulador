@@ -185,5 +185,3 @@ class funcao:
         self.nome = nome
         self.variaveis = variaveis
         self.codigo = codigo
-
-            

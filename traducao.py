@@ -13,7 +13,7 @@ class traducao:
 
 
     def le_info(self):
-        if (self.linguagem == "Quasm"):
+        if (self.linguagem == "QASM"):
             inclui=False
 
             self.frases.append("OPENQASM 2.0;")
