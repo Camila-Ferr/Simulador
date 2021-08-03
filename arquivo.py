@@ -74,7 +74,7 @@ class arquivo:
                         if linha[:2]== "to":
                             self.traduz = True
                             linguagem= linha.split('to ')
-                            linguagem = linguagem[1]
+                            self.linguagem = linguagem[1]
 
                         elif linha[:3] == "int":
                             nome, valor = linha.split('=')
@@ -174,8 +174,12 @@ class arquivo:
             self.funcoes = []  # vetor das funções
             self.medicao=self.dicionario.medicao
 
+            if (self.dicionario.traduz):
+                self.traduz=True
+                self.linguagem=self.dicionario.linguagem
+
         if (self.traduz):
-            simu = traducao(self,linguagem)
+            simu = traducao(self,self.linguagem,self.medicao)
 
 # Criação de funções, em progresso
 # Ainda não funciona para todos os casos        

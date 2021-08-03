@@ -16,6 +16,7 @@ class dicionario:
         info = self.arq.readline().split() # Armazena a primeira linha
 
         if (info[0] == 'QASM'): #Se o código for em QASM
+
             entrada = self.arq.readlines()#lê o arquivo
 
             for linha in entrada:
@@ -37,11 +38,18 @@ class dicionario:
                     classicos = int (separador[0])
                     self.medicao=[0]*classicos
 
+
                 elif (linha[:7] == 'measure'):  # Medir qbits
                     separador = linha.split('[')
                     numero = separador[1].split(']')
                     self.medicao[len(self.medicao) - self.i-1] = int(numero[0])
                     self.i= self.i+1
+
+                elif ('to' in linha):
+                    self.traduz = True
+                    linguagem = linha.split('to ')
+                    self.linguagem = linguagem[1]
+
 
                 else: #Operações
                     try:
@@ -55,6 +63,16 @@ class dicionario:
                             self.comandos.append(porta[0] + '(' + inteiros[0]+ ')')
                     except:
                         pass
+            medicao=''
+            for i in range (0,len(self.medicao)):
+
+                if (i!=0):
+                    medicao= medicao+','+str(self.medicao[i])
+                else:
+                    medicao=str(self.medicao[i])
+
+            self.comandos.append('(['+medicao+')]')
+
         elif info[0] == 'Qiskit': #se o código for em Qiskit
             inclui=False
             entrada = self.arq.readlines()  # lê o arquivo
@@ -69,7 +87,7 @@ class dicionario:
                         separador = linha.split('(')
                         separador = separador[1].split(',')
                         classicos = int(separador[0])
-                        self.medicao = [0] * classicos
+                        self.medicao = [0] * (classicos-1)
 
                     elif ('QuantumRegister' in linha):
                         separador = linha.split('(')
@@ -133,6 +151,11 @@ class dicionario:
                             comando=(porta[0]+'('+str(a) +')')
                             self.comandos.append(comando)
 
+                    elif ('to' in linha):
+                        self.traduz=True
+                        linguagem = linha.split('to ')
+                        self.linguagem = linguagem[1]
+
                     else:
                         try:
                             porta = linha.split('.')
@@ -146,7 +169,6 @@ class dicionario:
                                 self.comandos.append(porta[0] + '(' + inteiros[0]+ ')')
                         except:
                             pass
-
 
 
 

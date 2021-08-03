@@ -3,7 +3,7 @@ simulação de circuitos quânticos
 
 autores: Gabriela Pinheiro Costa e Luis Kowada
 
-ultima alteração: 21/07/2020 (CF)
+ultima alteração: 02/08/2021 (CF)
 
 pendências:   
 
@@ -19,7 +19,7 @@ status atual: cx,ccx,swap são permutações.
 from simulacao import *
 from traducao import traducao
 
-nome_arquivo = "Simulador"
+nome_arquivo = "teste.txt"
 #nome_arquivo = input("Digite o nome do arquivo: ")
 
 simu = simulacao(0,0,nome_arquivo)
