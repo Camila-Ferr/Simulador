@@ -1,15 +1,11 @@
 Qiskit
 def circuit_g():
   q = QuantumRegister(5, 'qubit') #quibits
-  c = ClassicalRegister(5, 'bit') #q clássico
-  cir = QuantumCircuit(q, c)
+  c = ClassicalRegister(6, 'bit') #q clássico
+  cir = QuantumCircuit(q, c) #circuito
 
-    a = 5
-    b = 3.5
-    c = 2.2
-
-  for i in range(0,a):
-      cir.x(q[i])
+  for i in range(0,5):
+      cir.h(q[i])
 
   #Oráculo
   cir.h(q[3])
@@ -20,6 +16,7 @@ def circuit_g():
   cir.ccx(q[0], q[1], q[2])
   cir.ccx(q[2], q[3], q[4])
   cir.ccx(q[0], q[1], q[2])
+  
   #Inversão sobre a média
   cir.h(q[0])
   cir.h(q[1])
@@ -43,8 +40,7 @@ def circuit_g():
 
   cir.measure(q[0], c[0])
   cir.measure(q[1], c[1])
-  cir.measure(q[2], c[2])
-  cir.measure(q[3], c[3])
-  cir.measure(q[4], c[4])
+  cir.measure(q[3], c[2])
 
-*QASM
+  #indicação da linguagem final
+* self

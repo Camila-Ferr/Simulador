@@ -11,7 +11,9 @@ class arquivo:
         self.vezes = -1
         self.entrada = []
         self.medicao=[]
+        self.traduz = False
         self.monta_comandos()
+
     ## executa comandos do arquivo
     def monta_comandos(self):
         info = self.arq.readline().split() # Armazena a primeira linha
@@ -58,7 +60,6 @@ class arquivo:
 
                 if len(linha) > 0:    # verificar se é linha de comentário
                     if linha[0]!="#" and linha[0]!="{": # linha de comentário
-
                         # laço de repefição for
                         # modelo:
 
@@ -71,9 +72,9 @@ class arquivo:
                         # int nome = valor
 
                         # Só são aceitas variáveis inteiras
-                        if linha[:2]== "to":
+                        if linha[:1]== "*":
                             self.traduz = True
-                            linguagem= linha.split('to ')
+                            linguagem= linha.split('*')
                             self.linguagem = linguagem[1]
 
                         elif linha[:3] == "int":
@@ -173,13 +174,14 @@ class arquivo:
             self.variaveis = {}  # dicionário que contém as variáveis
             self.funcoes = []  # vetor das funções
             self.medicao=self.dicionario.medicao
+            self.traduz=self.dicionario.traduz
 
             if (self.dicionario.traduz):
                 self.traduz=True
                 self.linguagem=self.dicionario.linguagem
 
         if (self.traduz):
-            simu = traducao(self,self.linguagem,self.medicao)
+            simu = traducao(self,self.linguagem)
 
 # Criação de funções, em progresso
 # Ainda não funciona para todos os casos        
