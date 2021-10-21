@@ -1,7 +1,7 @@
 Qiskit
 def circuit_g():
-  q = QuantumRegister(5, 'qubit') #quibits
-  c = ClassicalRegister(6, 'bit') #q clássico
+  q = QuantumRegister(8, 'qubit') #quibits
+  c = ClassicalRegister(8, 'bit') #q clássico
   cir = QuantumCircuit(q, c) #circuito
 
   for i in range(0,5):

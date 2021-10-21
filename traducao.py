@@ -26,10 +26,8 @@ class traducao:
                     self.aplica=False
 
                     valores = re.findall(r'\d+', self.arquivo.comandos[i])
-
                     for j in range (0,len(valores)):
-                        self.frases.append('measure q[' +str(valores[j]) +'] -> c[' +str(valores[j])+'];')
-
+                        self.frases.append('measure q[' +str(valores[len(valores)-j-1]) +'] -> c[' +str(valores[len(valores)-j-1])+'];')
                 else: #Caso seja uma operação
                     comando =self.arquivo.comandos[i].replace('(',' q[')
                     comando= comando.replace(')', ']')
@@ -54,7 +52,7 @@ class traducao:
                     valores = re.findall(r'\d+', self.arquivo.comandos[i])
 
                     for j in range (0,len(valores)):
-                        self.frases.append('cir.measure(q[' +valores[j] +'], c[' +valores[j] +'])')
+                        self.frases.append('cir.measure(q[' +valores[len(valores)-j-1] +'], c[' +valores[len(valores)-j-1] +'])')
 
                 else: #Caso seja comando
                     comando= self.arquivo.comandos[i].replace('(', '(q[')
