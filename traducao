@@ -1,27 +1,86 @@
-QASM 
-qreg q[5];
-creg c[5];
+def circuit():
+q = QuantumRegister(5'qubit');
+c = ClassicalRegister(5'bit')
+
+cir.x(q[0])
+cir.x(q[1])
+cir.x(q[2])
+cir.x(q[3])
+cir.x(q[4])
+cir.h(q[3])
+cir.x(q[4])
+cir.h(q[0])
+cir.h(q[1])
+cir.h(q[4])
+cir.ccx(q[0],q[1],q[2])
+cir.ccx(q[2],q[3],q[4])
+cir.ccx(q[0],q[1],q[2])
+cir.h(q[0])
+cir.h(q[1])
+cir.h(q[3])
+cir.x(q[0])
+cir.x(q[1])
+cir.x(q[3])
+cir.ccx(q[0],q[1],q[2])
+cir.x(q[0])
+cir.x(q[1])
+cir.ccx(q[2],q[3],q[4])
+cir.x(q[0])
+cir.x(q[1])
+cir.x(q[3])
+cir.ccx(q[0],q[1],q[2])
+cir.x(q[0])
+cir.x(q[1])
+cir.h(q[0])
+cir.h(q[1])
+cir.h(q[3])
  
-x q[2];
-h q[0];
-h q[1];
-h q[2];
-x q[0];
-x q[1];
-ccx q[0],q[1],q[2];
-x q[0];
-x q[1];
-h q[0];
-h q[1];
-x q[0];
-x q[1];
-ccx q[0],q[1],q[2];
-x q[0];
-x q[1];
-h q[0];
-h q[1];
-measure q[0] -> c[0];
-measure q[1] -> c[1];
-measure q[2] -> c[2];
-measure q[3] -> c[3];
-measure q[4] -> c[4];
+cir.measure(q[4], c[4])
+cir.measure(q[3], c[3])
+cir.measure(q[2], c[2])
+cir.measure(q[1], c[1])
+cir.measure(q[0], c[0])
+ 
+def circuit():
+q = QuantumRegister(5'qubit');
+c = ClassicalRegister(5'bit')
+
+cir.x(q[0])
+cir.x(q[1])
+cir.x(q[2])
+cir.x(q[3])
+cir.x(q[4])
+cir.h(q[3])
+cir.x(q[4])
+cir.h(q[0])
+cir.h(q[1])
+cir.h(q[4])
+cir.ccx(q[0],q[1],q[2])
+cir.ccx(q[2],q[3],q[4])
+cir.ccx(q[0],q[1],q[2])
+cir.h(q[0])
+cir.h(q[1])
+cir.h(q[3])
+cir.x(q[0])
+cir.x(q[1])
+cir.x(q[3])
+cir.ccx(q[0],q[1],q[2])
+cir.x(q[0])
+cir.x(q[1])
+cir.ccx(q[2],q[3],q[4])
+cir.x(q[0])
+cir.x(q[1])
+cir.x(q[3])
+cir.ccx(q[0],q[1],q[2])
+cir.x(q[0])
+cir.x(q[1])
+cir.h(q[0])
+cir.h(q[1])
+cir.h(q[3])
+ 
+cir.measure(q[4], c[4])
+cir.measure(q[3], c[3])
+cir.measure(q[2], c[2])
+cir.measure(q[1], c[1])
+cir.measure(q[0], c[0])
+ 

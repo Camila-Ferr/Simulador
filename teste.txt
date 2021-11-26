@@ -4,11 +4,7 @@ def circuit_g():
   c = ClassicalRegister(5, 'bit') #q clássico
   cir = QuantumCircuit(q, c)
 
-    a = 5
-    b = 3.5
-    c = 2.2
-
-  for i in range(0,a):
+  for i in range(0,5):
       cir.x(q[i])
 
   #Oráculo
@@ -41,10 +37,10 @@ def circuit_g():
   cir.h(q[1])
   cir.h(q[3])
 
-  cir.measure(q[0], c[0])
-  cir.measure(q[1], c[1])
-  cir.measure(q[2], c[2])
-  cir.measure(q[3], c[3])
   cir.measure(q[4], c[4])
+  cir.measure(q[3], c[3])
+  cir.measure(q[2], c[2])
+  cir.measure(q[1], c[1])
+  cir.measure(q[0], c[0])
 
-*QASM
+* Qiskit
